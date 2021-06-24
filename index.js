@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const calculadora = require('./services/calculoImc');
+const conversor = require('./services/conversorTemp');
 const port = 8080;
 
 
@@ -9,7 +10,13 @@ app.get('/', (req, res) => {
 });
 
 app.get('/conversor-temperaturas', (req,res) => {
+    let temperatura = req.query.temperatura;
+    let grauAtual = req.query.grauAtual;
+    let grauDesejado = req.query.grauDesejado;
 
+    let resultado = conversor.converter(temperatura, grauAtual, grauDesejado);
+
+    res.json({temperatura:resultado});
 })
 
 app.get('/calcular-imc', (req,res)=>{

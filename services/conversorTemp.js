@@ -1,8 +1,8 @@
 const conversor = (temp, grauAtual, grauConverter) => {
     let conversao;
 
-    if (grauAtual.toUpper() == 'C') {
-        switch(grauConverter.toUpper()) {
+    if (grauAtual.toUpperCase() == 'C') {
+        switch(grauConverter.toUpperCase()) {
             case 'F':
                 conversao = (temp * (9/5) + 32);
             break;
@@ -10,8 +10,8 @@ const conversor = (temp, grauAtual, grauConverter) => {
                 conversao = (temp + 273.15);
             break;          
         }
-    } else if (grauAtual.toUpper() == 'F') {
-        switch(grauConverter.toUpper()) {
+    } else if (grauAtual.toUpperCase() == 'F') {
+        switch(grauConverter.toUpperCase()) {
             case 'C':
                 conversao = ((temp - 32) * (5/9));
             break;
@@ -20,7 +20,7 @@ const conversor = (temp, grauAtual, grauConverter) => {
             break;          
         }
     } else {
-        switch(grauConverter.toUpper()) {
+        switch(grauConverter.toUpperCase()) {
             case 'C':
                 conversao = (temp - 273.15);
             break;
@@ -30,7 +30,7 @@ const conversor = (temp, grauAtual, grauConverter) => {
         }
     }
 
-    return conversao;
+    return conversao.toFixed(4);
 };
 
-exports.conversor = conversor;
+exports.converter = conversor;
